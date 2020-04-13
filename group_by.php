@@ -32,12 +32,12 @@ $data2 = $test2->fetchAll();
 $count2 = count($data2);
 
 
-$test3 = $sql->query("SELECT DATE_FORMAT(p.enrollment,'%W %d %m %Y') as date_enrollment, CONCAT(w.firstname, ' ', w.lastname) as fullname, t.name FROM player p
+$test3 = $sql->query("SELECT DATE_FORMAT(p.enrollment_date,'%W %d %m %Y') as date_enrollment, CONCAT(w.firstname, ' ', w.lastname) as fullname, t.name FROM player p
                             JOIN wizard w 
                             ON p.wizard_id=w.id
                             JOIN team t 
                             ON p.team_id=t.id
-                            WHERE t.name='Gryffindor' AND DAYOFWEEK(p.enrollment) = 2
+                            WHERE t.name='Gryffindor' AND DAYOFWEEK(p.enrollment_date) = 2
                             ORDER BY date_enrollment ASC");
 
 $data3 = $test3->fetchAll();
